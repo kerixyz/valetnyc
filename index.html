@@ -43,6 +43,95 @@
           "email": "info@valetnyc.com"
         }
         </script>
+
+         <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            // Initialize map
+            var map = L.map('map').setView([40.748817, -73.985428], 13); // Centered on New York City
+
+            // Add Tile Layer (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Location Data: Coordinates for each location
+            var locations = [
+                {
+                    name: "Chelsea Landmark",
+                    address: "55 W 25th Street, New York, NY 10010",
+                    phone: "347-972-4899",
+                    hours: "Mon-Fri: 8am-5pm",
+                    lat: 40.742054,
+                    lng: -73.992119
+                },
+                {
+                    name: "The Metropolis",
+                    address: "150 E 44th Street, New York, NY 10017",
+                    phone: "347-972-7095",
+                    hours: "Mon-Fri: 8am-5pm",
+                    lat: 40.751353,
+                    lng: -73.974228
+                },
+                {
+                    name: "Anagram NoMad",
+                    address: "10 East 29th Street, New York, NY 10016",
+                    phone: "347-972-4899",
+                    hours: "Mon-Fri: 8am-5pm",
+                    lat: 40.744034,
+                    lng: -73.988977
+                },
+                {
+                    name: "The Caroline",
+                    address: "60 W 23rd Street, New York, NY 10010",
+                    phone: "347-972-4899",
+                    hours: "Mon-Fri: 8am-5pm",
+                    lat: 40.742820,
+                    lng: -73.991058
+                },
+                {
+                    name: "Chelsea Canvas",
+                    address: "280 W 24th Street, New York, NY 10011",
+                    phone: "347-972-4899",
+                    hours: "Mon-Sat: 8am-5pm",
+                    lat: 40.743987,
+                    lng: -73.997834
+                },
+                {
+                    name: "New York Tower",
+                    address: "330 East 39th St, New York, NY 10016",
+                    phone: "347-972-4899",
+                    hours: "Mon-Fri: 8am-5pm",
+                    lat: 40.747051,
+                    lng: -73.976086
+                },
+                {
+                    name: "21 West Street",
+                    address: "21 West St, New York, NY 10006",
+                    phone: "347-972-4899",
+                    hours: "Mon-Fri: 8am-5pm",
+                    lat: 40.706217,
+                    lng: -74.012703
+                }
+            ];
+
+            // Add Markers for Locations
+            locations.forEach(function(location) {
+                var marker = L.marker([location.lat, location.lng]).addTo(map);
+                marker.bindPopup(`
+                    <strong>${location.name}</strong><br>
+                    ${location.address}<br>
+                    <strong>Phone:</strong> ${location.phone}<br>
+                    <strong>Hours:</strong> ${location.hours}
+                `);
+            });
+        </script>
+
+        <!-- Optional Bootstrap JS (for responsive layout and modals, if needed) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -240,6 +329,7 @@
             </div>
         </section>
 
+        
         <section id="faq" class="py-5">
             <div class="container">
                 <div class="row text-center">
